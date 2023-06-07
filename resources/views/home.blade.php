@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Crear un nuevo Tenants</div>
+                <div class="card-header bg-info">Registro empresa</div>
                 <div class="card-body">
                     @if (session('correcto'))
                     <div class="alert alert-success" role="alert">
@@ -36,9 +36,42 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-12 py-3">
+            <div class="card">
+                <div class="card-header bg-info">Lista de empresas</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>NOMBRE DE LA EMPRESA</th>
+                            <th>DOMINIO</th>
+                            <th>BASE DE DATOS</th>
+                            <th>FECHA DE REGISTRO</th>
+                            <th>FECHA DE ACTIVACIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($tenants as $tenant)
+                        <tr>
+                            <td>{{ $tenant->id }}</td>
+                            <td>{{ $tenant->name }}</td>
+                            <td>
+                                <a href="{{ $tenant->domain }}" target="_blank" rel="noopener noreferrer">
+                                    {{ $tenant->domain }}
+                                </a>
+                            </td>
+                            <td>{{ $tenant->database }}</td>
+                            <td>{{ $tenant->created_at }}</td>
+                            <td>{{ $tenant->created_at }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <div class="col-md-8 py-5">
             <div class="card">
-                <div class="card-header">Publicar post</div>
+                <div class="card-header bg-info">Publicar post</div>
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -66,7 +99,7 @@
         </div>
         <div class="col-md-4 py-5">
             <div class="card">
-                <div class="card-header">Mi ultima publicación</div>
+                <div class="card-header bg-info">Mi ultima publicación</div>
                 <div class="card-body">
                     <h4>{{ $titulo }}</h4>
                     <p>{{ $mensaje }}</p>
@@ -74,5 +107,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

@@ -30,4 +30,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/registro-tenant', 'HomeController@crearTenant')->name('registro.tenant.post');
+Route::post('/registro-tenant', 'LandingController@crearTenant')->name('registro.tenant.post');

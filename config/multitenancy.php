@@ -19,7 +19,6 @@ return [
      * This class should extend `Spatie\Multitenancy\TenantFinder\TenantFinder`
      *
      */
-    // 'tenant_finder' => null,
     'tenant_finder' => Spatie\Multitenancy\TenantFinder\DomainTenantFinder::class,
 
 
@@ -36,7 +35,6 @@ return [
      * A valid task is any class that implements Spatie\Multitenancy\Tasks\SwitchTenantTask
      */
     'switch_tenant_tasks' => [
-        // add tasks here
         Spatie\Multitenancy\Tasks\SwitchTenantDatabaseTask::class,
     ],
 
